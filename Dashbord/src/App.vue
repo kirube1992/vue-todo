@@ -1,9 +1,9 @@
 <script setup>
-import dashbord from "./views/dashbord.vue";
+import DashBoard from "./views/DashBoard.vue";
 </script>
 
 <template>
-  <dashbord />
+  <dash-board />
 </template>
 
 <style scoped></style>

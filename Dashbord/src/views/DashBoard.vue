@@ -28,7 +28,7 @@ import topbar from "@/components/layout/topbar.vue";
 }
 .contetn {
   display: flex;
-  padding: 24;
+  padding: 24px;
   overflow-y: auto;
 }
 </style>
