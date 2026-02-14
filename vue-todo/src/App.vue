@@ -1,10 +1,16 @@
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
-const todo = ref([]);
+const todos = ref([]);
 const name = ref("");
 
 const input_content = ref("");
 const input_catagory = ref("");
+
+const todoAsc = computed(() => {
+  todos.value.sort((a, b) => {
+    return b.cerateAdt - a.cerateAdt;
+  });
+});
 
 watch(name, (newval) => {
   localStorage.setItem("name", newval);
@@ -12,9 +18,29 @@ watch(name, (newval) => {
 
 onMounted(() => {
   name.value = localStorage.getItem("name" || "");
+  todos.value = JSON.parse(localStorage.getItem("todos")) || "";
 });
 
-const addToDo = () => {};
+const addToDo = () => {
+  if (input_catagory.value.trim === "" || input_content.value.trim === null) {
+    return;
+  }
+
+  todos.value.push({
+    content: input_content.value,
+    catagory: input_catagory.value,
+    done: false,
+    cerateAdt: new Date().getTime(),
+  });
+};
+
+watch(
+  todos,
+  (newval) => {
+    localStorage.setItem("todos", JSON.stringify(newval));
+  },
+  { deep: true },
+);
 </script>
 
 <template>
