@@ -5,3 +5,4 @@
     <p>this is impomenting vue porject</p>
   </div>
 </template>
+<style scoped></style>

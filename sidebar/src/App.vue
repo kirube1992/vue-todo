@@ -11,6 +11,8 @@ import sidebar from './component/sidebar.vue'
 
 <style>
 .app {
-  display: flex;
+  background: #59544b;
+  max-width: 280px;
+  height: 100vh;
 }
 </style>
